@@ -1,12 +1,12 @@
 local PluginAPI = {}
-function PluginAPI:CreatePlugin(name, description) 
+function PluginAPI:CreatePlugin(name, description)
 	local Functions = {}
 	local Plugin = {
 		["PluginName"] = name,
 		["PluginDescription"] = description,
 		["Commands"] = {}
 	}
-	function Functions:AddCommand(Name, ListName, Description, Aliases, Callback) 
+	function Functions:AddCommand(Name, ListName, Description, Aliases, Callback)
 		Plugin["Commands"][Name] = {
 			["ListName"] = ListName,
 			["Description"] = Description,
@@ -17,9 +17,9 @@ function PluginAPI:CreatePlugin(name, description)
 	return {PluginTable = Plugin, Functions = Functions}
 end
 --[[Example Code:
-local PluginAPI = loadstring(game:HttpGet("https://pastebin.com/raw/u7HEbm8q"))()
+local PluginAPI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Redcarred2/Some-Plugin-Wrapper/master/Raw.lua"))()
 local Plugin = PluginAPI:CreatePlugin("example plugin", "made by stroketon")
-Plugin.Functions:AddCommand("notify", "notify [text]",  "Notifes", {"noti"}, function(args,speaker) 
+Plugin.Functions:AddCommand("notify", "notify [text]",  "Notifes", {"noti"}, function(args,speaker)
 	notify(table.concat(args, " "))
 end)
 return Plugin.PluginTable]]
